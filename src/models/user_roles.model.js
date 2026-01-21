@@ -4,9 +4,9 @@ export const userRolesModel = {
       return null;
     }
     return {
-        user_id: userRoles.user_id,
-        role_id: userRoles.role_id,
-        assigned_at: userRoles.assigned_at,
+      user_id: userRoles.userId,
+      role_id: userRoles.roleId,
+      assigned_at: userRoles.assignedAt,
     };
   },
 };

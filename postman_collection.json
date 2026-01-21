@@ -185,13 +185,13 @@
           }
         },
         {
-          "name": "Get user role by ids",
+          "name": "Get user role by user id",
           "request": {
             "method": "GET",
             "url": {
-              "raw": "{{baseUrl}}/user-roles/:userId/:roleId",
+              "raw": "{{baseUrl}}/user-roles/:userId",
               "host": ["{{baseUrl}}"],
-              "path": ["user-roles", ":userId", ":roleId"]
+              "path": ["user-roles", ":userId"]
             }
           }
         },
@@ -204,12 +204,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"assigned_at\": \"2026-01-01T10:00:00.000Z\"\n}"
+              "raw": "{\n  \"role_id\": \"uuid\",\n  \"assigned_at\": \"2026-01-01T10:00:00.000Z\"\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/user-roles/:userId/:roleId",
+              "raw": "{{baseUrl}}/user-roles/:userId",
               "host": ["{{baseUrl}}"],
-              "path": ["user-roles", ":userId", ":roleId"]
+              "path": ["user-roles", ":userId"]
             }
           }
         },
@@ -218,9 +218,9 @@
           "request": {
             "method": "DELETE",
             "url": {
-              "raw": "{{baseUrl}}/user-roles/:userId/:roleId",
+              "raw": "{{baseUrl}}/user-roles/:userId",
               "host": ["{{baseUrl}}"],
-              "path": ["user-roles", ":userId", ":roleId"]
+              "path": ["user-roles", ":userId"]
             }
           }
         }
