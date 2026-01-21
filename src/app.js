@@ -3,6 +3,7 @@ import cors from 'cors';
 import { userRouter } from './routes/user.route.js';
 import { userRolesRouter } from './routes/user_roles.route.js';
 import { rolesRouter } from './routes/roles.route.js';
+import { userAddressesRouter } from './routes/user_addresses.route.js';
 import { requestLoggerMiddleware } from './middlewares/request-logger.middleware.js';
 
 export const createApp = () => {
@@ -20,6 +21,7 @@ export const createApp = () => {
   app.use('/users', userRouter);
   app.use('/roles', rolesRouter);
   app.use('/user-roles', userRolesRouter);
+  app.use('/user-addresses', userAddressesRouter);
 
   return app;
 };

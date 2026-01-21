@@ -5,13 +5,13 @@ export const userAddressesModel = {
     }
     return {
       id: userAddresses.id,
-      user_id: userAddresses.user_id,
-      country_id: userAddresses.country_id,
+      user_id: userAddresses.userId,
+      country_id: userAddresses.countryId,
       street: userAddresses.street,
       city: userAddresses.city,
-      postal_code: userAddresses.postal_code,
-      is_primary: userAddresses.is_primary,
-      created_at: userAddresses.created_at
+      postal_code: userAddresses.postalCode,
+      is_primary: userAddresses.isPrimary,
+      created_at: userAddresses.createdAt,
     };
   },
 };
