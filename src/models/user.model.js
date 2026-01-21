@@ -5,13 +5,13 @@ export const userModel = {
     }
     return {
       id: user.id,
-      country_id: user.country_id, 
-      first_name: user.first_name,
-      last_name: user.last_name,
-      phone_number: user.phone_number,
+      country_id: user.countryId,
+      first_name: user.firstName,
+      last_name: user.lastName,
+      phone_number: user.phoneNumber,
       status: user.status,
-      createdAt: user.createdAt,
-      updatedAt: user.updatedAt,
+      created_at: user.createdAt,
+      updated_at: user.updatedAt,
     };
   },
 };
