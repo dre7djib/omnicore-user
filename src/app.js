@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { userRouter } from './routes/user.route.js';
+import { requestLoggerMiddleware } from './middlewares/request-logger.middleware.js';
 
 export const createApp = () => {
   const app = express();
@@ -8,6 +9,7 @@ export const createApp = () => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(cors());
+  app.use(requestLoggerMiddleware);
 
   app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
