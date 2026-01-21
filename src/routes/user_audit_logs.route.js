@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { userAuditLogsController } from '../controllers/user_audit_logs.controller.js';
 import { validateBody } from '../middlewares/validation.middleware.js';
+import { asyncHandler } from '../middlewares/error-handler.middleware.js';
 import {
   createUserAuditLogSchema,
   updateUserAuditLogSchema,
@@ -11,14 +12,14 @@ export const userAuditLogsRouter = Router();
 userAuditLogsRouter.post(
   '/',
   validateBody(createUserAuditLogSchema),
-  userAuditLogsController.create,
+  asyncHandler(userAuditLogsController.create),
 );
-userAuditLogsRouter.get('/', userAuditLogsController.list);
-userAuditLogsRouter.get('/:id', userAuditLogsController.getById);
+userAuditLogsRouter.get('/', asyncHandler(userAuditLogsController.list));
+userAuditLogsRouter.get('/:id', asyncHandler(userAuditLogsController.getById));
 userAuditLogsRouter.put(
   '/:id',
   validateBody(updateUserAuditLogSchema),
-  userAuditLogsController.update,
+  asyncHandler(userAuditLogsController.update),
 );
-userAuditLogsRouter.delete('/:id', userAuditLogsController.remove);
+userAuditLogsRouter.delete('/:id', asyncHandler(userAuditLogsController.remove));
 

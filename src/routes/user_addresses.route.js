@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { userAddressesController } from '../controllers/user_addresses.controller.js';
 import { validateBody } from '../middlewares/validation.middleware.js';
+import { asyncHandler } from '../middlewares/error-handler.middleware.js';
 import {
   createUserAddressSchema,
   updateUserAddressSchema,
@@ -11,14 +12,14 @@ export const userAddressesRouter = Router();
 userAddressesRouter.post(
   '/',
   validateBody(createUserAddressSchema),
-  userAddressesController.create,
+  asyncHandler(userAddressesController.create),
 );
-userAddressesRouter.get('/', userAddressesController.list);
-userAddressesRouter.get('/:id', userAddressesController.getById);
+userAddressesRouter.get('/', asyncHandler(userAddressesController.list));
+userAddressesRouter.get('/:id', asyncHandler(userAddressesController.getById));
 userAddressesRouter.put(
   '/:id',
   validateBody(updateUserAddressSchema),
-  userAddressesController.update,
+  asyncHandler(userAddressesController.update),
 );
-userAddressesRouter.delete('/:id', userAddressesController.remove);
+userAddressesRouter.delete('/:id', asyncHandler(userAddressesController.remove));
 

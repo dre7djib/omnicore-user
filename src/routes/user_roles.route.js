@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { userRolesController } from '../controllers/user_roles.controller.js';
 import { validateBody } from '../middlewares/validation.middleware.js';
+import { asyncHandler } from '../middlewares/error-handler.middleware.js';
 import {
   createUserRoleSchema,
   updateUserRoleSchema,
@@ -11,14 +12,14 @@ export const userRolesRouter = Router();
 userRolesRouter.post(
   '/',
   validateBody(createUserRoleSchema),
-  userRolesController.create,
+  asyncHandler(userRolesController.create),
 );
-userRolesRouter.get('/', userRolesController.list);
-userRolesRouter.get('/:userId', userRolesController.getByIds);
+userRolesRouter.get('/', asyncHandler(userRolesController.list));
+userRolesRouter.get('/:userId', asyncHandler(userRolesController.getByIds));
 userRolesRouter.put(
   '/:userId',
   validateBody(updateUserRoleSchema),
-  userRolesController.update,
+  asyncHandler(userRolesController.update),
 );
-userRolesRouter.delete('/:userId', userRolesController.remove);
+userRolesRouter.delete('/:userId', asyncHandler(userRolesController.remove));
 
