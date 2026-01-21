@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { userRouter } from './routes/user.route.js';
+import { rolesRouter } from './routes/roles.route.js';
 import { requestLoggerMiddleware } from './middlewares/request-logger.middleware.js';
 
 export const createApp = () => {
@@ -16,6 +17,7 @@ export const createApp = () => {
   });
 
   app.use('/users', userRouter);
+  app.use('/roles', rolesRouter);
 
   return app;
 };
