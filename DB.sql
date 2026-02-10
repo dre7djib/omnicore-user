@@ -1,4 +1,4 @@
-"Table de Référence"
+-- Table de Reference
 
 CREATE TABLE COUNTRIES (
     id UUID PRIMARY KEY,
@@ -24,7 +24,7 @@ CREATE TABLE ROLES (
     description TEXT
 );
 
-"Tables Utilisateurs et Authentification"
+-- Tables Utilisateurs et Authentification
 
 CREATE TABLE AUTH_USERS (
     id UUID PRIMARY KEY,
@@ -66,7 +66,7 @@ CREATE TABLE AUTH_SESSIONS (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-"Tables Produits et Localisation"
+-- Tables Produits et Localisation
 
 CREATE TABLE COUNTRY_PRODUCTS (
     id UUID PRIMARY KEY,
@@ -86,7 +86,7 @@ CREATE TABLE PRODUCT_IMAGES (
     is_primary BOOLEAN DEFAULT false
 );
 
-"Tables Profil et Logs"
+-- Tables Profil et Logs
 
 CREATE TABLE USER_ADDRESSES (
     id UUID PRIMARY KEY,
