@@ -7,6 +7,7 @@ const uuidSchema = Joi.string().guid({
 const optionalTrimmedString = Joi.string().trim().max(255).empty('');
 
 export const createUserSchema = Joi.object({
+  auth_user_id: uuidSchema.required(),
   country_id: uuidSchema.required(),
   first_name: optionalTrimmedString,
   last_name: optionalTrimmedString,

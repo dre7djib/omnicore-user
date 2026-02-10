@@ -4,6 +4,7 @@ import { logger } from '../utils/logger.js';
 
 const normalizeCreatePayload = (payload) => {
   return {
+    id: payload?.auth_user_id || null,
     countryId: payload?.country_id || null,
     firstName: payload?.first_name?.trim() || null,
     lastName: payload?.last_name?.trim() || null,
