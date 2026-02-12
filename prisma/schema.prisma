@@ -21,7 +21,7 @@ model Country {
   userAddresses   UserAddress[]
   countryProducts CountryProduct[]
 
-  @@map("COUNTRIES")
+  @@map("countries")
 }
 
 model Product {
@@ -35,7 +35,7 @@ model Product {
   countryProducts CountryProduct[]
   productImages   ProductImage[]
 
-  @@map("PRODUCTS")
+  @@map("products")
 }
 
 model Role {
@@ -45,7 +45,7 @@ model Role {
 
   userRoles UserRole[]
 
-  @@map("ROLES")
+  @@map("roles")
 }
 
 model AuthUser {
@@ -64,7 +64,7 @@ model AuthUser {
   roles    UserRole[]
   sessions AuthSession[]
 
-  @@map("AUTH_USERS")
+  @@map("auth_users")
 }
 
 model User {
@@ -83,7 +83,7 @@ model User {
   preferences   UserPreference[]
   auditLogs     UserAuditLog[]
 
-  @@map("USERS")
+  @@map("users")
 }
 
 model UserRole {
@@ -95,7 +95,7 @@ model UserRole {
   role Role     @relation(fields: [roleId], references: [id])
 
   @@id([userId, roleId])
-  @@map("USER_ROLES")
+  @@map("user_roles")
 }
 
 model AuthSession {
@@ -109,7 +109,7 @@ model AuthSession {
 
   user AuthUser @relation(fields: [userId], references: [id])
 
-  @@map("AUTH_SESSIONS")
+  @@map("auth_sessions")
 }
 
 model CountryProduct {
@@ -125,7 +125,7 @@ model CountryProduct {
   product Product @relation(fields: [productId], references: [id])
   country Country @relation(fields: [countryId], references: [id])
 
-  @@map("COUNTRY_PRODUCTS")
+  @@map("country_products")
 }
 
 model ProductImage {
@@ -136,7 +136,7 @@ model ProductImage {
 
   product Product @relation(fields: [productId], references: [id])
 
-  @@map("PRODUCT_IMAGES")
+  @@map("product_images")
 }
 
 model UserAddress {
@@ -152,7 +152,7 @@ model UserAddress {
   user    User     @relation(fields: [userId], references: [id])
   country Country? @relation(fields: [countryId], references: [id])
 
-  @@map("USER_ADDRESSES")
+  @@map("user_addresses")
 }
 
 model UserPreference {
@@ -164,7 +164,7 @@ model UserPreference {
 
   user User @relation(fields: [userId], references: [id])
 
-  @@map("USER_PREFERENCES")
+  @@map("user_preferences")
 }
 
 model UserAuditLog {
@@ -176,6 +176,6 @@ model UserAuditLog {
 
   user User @relation(fields: [userId], references: [id])
 
-  @@map("USER_AUDIT_LOGS")
+  @@map("user_audit_logs")
 }
 
